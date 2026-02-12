@@ -1,0 +1,14 @@
+.loader {
+  font-size: 1.5rem;
+  color: white;
+  text-align: center;
+  margin: 2rem;
+}
+
+.table-row {
+  background-color: rgba(82, 100, 188, 0.616);
+}
+
+.table-body {
+  background-color: rgba(145, 162, 209, 0.66);
+}

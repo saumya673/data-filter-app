@@ -1,14 +1,17 @@
 "use client";
 
-import Table from "@/components/Table";
+import Table from "@/components/Table/Table";
 import { useEmployeeData } from "@/hooks/useEmployeeData";
+import "./page.css";
 
 export default function Home() {
   const employeeData = useEmployeeData();
   return (
-    <div className="main-content">
-      <h1>Employee Data Table</h1>
-      <Table data={employeeData.data} />
+    <div>
+      <div className="title">Employee Data Table</div>
+      <div className="table-wrapper">
+        <Table data={employeeData.data} isLoading={employeeData.isLoading} />
+      </div>
     </div>
   );
 }
