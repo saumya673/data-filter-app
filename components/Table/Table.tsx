@@ -15,8 +15,11 @@ interface TableProps {
 }
 
 export default function BasicTable({ data, isLoading }: TableProps) {
+  if (data.length === 0) {
+    return <div className="message">No results</div>;
+  }
   if (isLoading) {
-    return <div className="loader">Loading...</div>;
+    return <div className="message">Loading...</div>;
   }
 
   const tableCellStyle = {

@@ -1,5 +1,12 @@
+import "./Filter.css";
+
 const Filter = () => {
-  return <div>I am filter component</div>;
+  return (
+    <>
+      <div className="filter-text">Filter By</div>
+      <div className="filter"></div>
+    </>
+  );
 };
 
 export default Filter;
