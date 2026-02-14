@@ -76,6 +76,8 @@ export default function BasicTable() {
                   <TableCell sx={tableHeadCellStyle}>
                     Performance Rating
                   </TableCell>
+                  <TableCell sx={tableHeadCellStyle}>City</TableCell>
+                  <TableCell sx={tableHeadCellStyle}>Country</TableCell>
                 </TableRow>
               </TableHead>
 
@@ -99,6 +101,8 @@ export default function BasicTable() {
                     <TableCell sx={tableCellStyle}>
                       {row.performanceRating}
                     </TableCell>
+                    <TableCell sx={tableCellStyle}>{row.address.city}</TableCell>
+                    <TableCell sx={tableCellStyle}>{row.address.country}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>
