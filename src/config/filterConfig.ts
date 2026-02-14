@@ -44,7 +44,7 @@ export const OPERATORS_BY_TYPE: Record<string, { value: Operator; label: string 
         { value: "date_between", label: "Between" },
     ],
     boolean: [
-        { value: "eq", label: "Is" },
+        { value: "bool_eq", label: "Is" },
     ],
     "single-select": [
         { value: "equals", label: "Is" },

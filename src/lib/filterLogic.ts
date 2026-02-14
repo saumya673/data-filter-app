@@ -1,5 +1,5 @@
 import { EmployeeDataResponse } from "@/schema/employee-data-response";
-import { FilterCondition, Operator } from "@/types/filter";
+import { FilterCondition } from "@/types/filter";
 import { AVAILABLE_FIELDS } from "@/config/filterConfig";
 import dayjs from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
@@ -74,7 +74,7 @@ export function evaluateCondition(row: any, condition: FilterCondition): boolean
             return false;
 
         // --- Boolean ---
-        case "eq": // reusing eq for boolean
+        case "bool_eq":
             return Boolean(value) === Boolean(filterValue);
 
         // --- Array / Multi-select ---

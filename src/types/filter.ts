@@ -26,6 +26,8 @@ export type Operator =
   | "date_before"
   | "date_after"
   | "date_between"
+  // Boolean
+  | "bool_eq"
   // Array / Multi-select
   | "includes_all"
   | "includes_any"
