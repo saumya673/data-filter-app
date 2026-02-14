@@ -8,7 +8,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { Alert, CircularProgress, Box, Typography } from "@mui/material";
+import { Alert, CircularProgress, Box, Typography, Button } from "@mui/material";
+import { Download } from "lucide-react";
 
 import "./Table.css";
 import { FilterBuilder } from "../Filter/DynamicFilter/FilterBuilder";
@@ -39,10 +40,51 @@ export default function BasicTable() {
     <>
       <FilterBuilder />
 
-      <Box sx={{ mb: 2 }}>
+      <Box sx={{ mb: 2, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <Typography variant="body2" color="text.secondary">
           Showing {data.length} of {employees.length} records
         </Typography>
+        <Button
+          variant="outlined"
+          startIcon={<Download size={16} />}
+          onClick={() => {
+            if (data.length === 0) return;
+            const headers = [
+              "Name", "Email", "Department", "Role", "Salary", "Join Date",
+              "Active", "Skills", "Projects", "Performance", "City", "Country"
+            ];
+            const csvContent = [
+              headers.join(","),
+              ...data.map(row => [
+                `"${row.name}"`,
+                `"${row.email}"`,
+                `"${row.department}"`,
+                `"${row.role}"`,
+                row.salary,
+                row.joinDate,
+                row.isActive,
+                `"${row.skills.join(";")}"`,
+                row.projects,
+                row.performanceRating,
+                `"${row.address.city}"`,
+                `"${row.address.country}"`
+              ].join(","))
+            ].join("\n");
+
+            const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+            const link = document.createElement("a");
+            const url = URL.createObjectURL(blob);
+            link.setAttribute("href", url);
+            link.setAttribute("download", "filtered_employees.csv");
+            link.style.visibility = "hidden";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          }}
+          disabled={data.length === 0}
+        >
+          Export CSV
+        </Button>
       </Box>
 
       {isLoading ? (
