@@ -62,7 +62,7 @@ export function FilterRow({
         p: 2,
         border: "1px solid #eee",
         borderRadius: 2,
-        backgroundColor: "rgba(145, 162, 209, 0.66)",
+        backgroundColor: "background.paper",
       }}
     >
       {/* Field Selector */}
