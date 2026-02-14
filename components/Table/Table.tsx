@@ -40,7 +40,7 @@ export default function BasicTable() {
       <FilterBuilder />
 
       <Box sx={{ mb: 2 }}>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="white">
           Showing {data.length} of {employees.length} records
         </Typography>
       </Box>
@@ -96,13 +96,19 @@ export default function BasicTable() {
                     <TableCell sx={tableCellStyle}>
                       {row.isActive ? "Active" : "Inactive"}
                     </TableCell>
-                    <TableCell sx={tableCellStyle}>{row.skills.join(", ")}</TableCell>
+                    <TableCell sx={tableCellStyle}>
+                      {row.skills.join(", ")}
+                    </TableCell>
                     <TableCell sx={tableCellStyle}>{row.projects}</TableCell>
                     <TableCell sx={tableCellStyle}>
                       {row.performanceRating}
                     </TableCell>
-                    <TableCell sx={tableCellStyle}>{row.address.city}</TableCell>
-                    <TableCell sx={tableCellStyle}>{row.address.country}</TableCell>
+                    <TableCell sx={tableCellStyle}>
+                      {row.address.city}
+                    </TableCell>
+                    <TableCell sx={tableCellStyle}>
+                      {row.address.country}
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
